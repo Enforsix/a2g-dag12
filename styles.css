@@ -12,7 +12,7 @@ body {
 }
 
 /* MAIN */
-main {
+.main {
   height: 100vh;
   gap: 50px;
   display: flex;
@@ -35,17 +35,70 @@ main {
 .slideInLeftCard {
   background-color: var(--cardFromLeft);
   color: whitesmoke;
+  animation-name: slideInLeft;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-1000px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
 .slideInRightCard {
   background-color: var(--cardFromRight);
+  /** animation: name duration timing-function delay iteration-count direction fill-mode; **/
+  animation: slideInRight 3s ease-in;
+}
+  
+@keyframes slideInRight {
+  from {
+    transform: translateX(1000px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
 
 .rotateCard {
   padding: 20px;
   width: 100px;
   height: 100px;
+  border-radius: 15px;
   background-color: var(--rotate);
+  animation-name: fullRotation;
+  animation-duration: 3s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes fullRotation {
+  0% {
+    transform: rotate(0);
+    scale: 0;
+  }
+
+  50% {
+    transform: rotate(360deg);
+    scale: 3;
+  }
+
+  100%{
+    transform: rotate(0);
+    scale: 1;
+  }
+}
+
+.flexColCenter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttonContainer {
@@ -61,4 +114,36 @@ main {
   border-color: lightgrey;
   border-style: solid;
   box-shadow: 2px 2px 5px lightgrey;
+}
+
+/* .buttonColor .buttonSize .buttonOpacity {
+  transition-duration: 1s;
+  transitio-timing-function: ease-in;} */
+  
+.buttonColor{
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+}
+.buttonColor:hover {
+  background-color: rgb(109, 107, 204 );
+}
+
+.buttonSize{
+  transition: 0.3s;
+  transition-timing-function: ease-in;
+}
+
+.buttonSize:hover{
+  transform: scale(1.5);
+  background-color: rgb(109, 107, 204 );
+}
+
+.buttonOpacity{
+  transition: 0.3s;
+  transition-timing-function: ease-in;
+}
+
+.buttonOpacity:hover {
+  opacity: 50%;
+  background-color: rgb(109, 107, 204 );
 }
